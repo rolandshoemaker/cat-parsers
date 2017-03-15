@@ -111,8 +111,8 @@ var ekuToString = map[x509.ExtKeyUsage]string{
 
 func ProcessCertificate(cert *x509.Certificate) map[string]interface{} {
 	m := map[string]interface{}{
-		"notBefore":          cert.NotBefore.UnixNano(),
-		"notAfter":           cert.NotAfter.UnixNano(),
+		"notBefore":          cert.NotBefore,
+		"notAfter":           cert.NotAfter,
 		"serialNumber":       fmt.Sprintf("%x", cert.SerialNumber.Bytes()),
 		"basicConstraints":   cert.BasicConstraintsValid,
 		"isCA":               cert.IsCA,
